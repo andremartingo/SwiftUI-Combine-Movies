@@ -22,6 +22,7 @@
 		30925EEE22A95836003D4341 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30925EED22A95836003D4341 /* API.swift */; };
 		30925EF022A9588D003D4341 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30925EEF22A9588D003D4341 /* URLSession+Extensions.swift */; };
 		30925EF222A95BA3003D4341 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30925EF122A95BA3003D4341 /* MovieResponse.swift */; };
+		30E799C322AAA38500591E02 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E799C222AAA38500591E02 /* MovieCellViewModel.swift */; };
 		30F7FB4422AA69FA008587E8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7FB4322AA69FA008587E8 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		30925EED22A95836003D4341 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		30925EEF22A9588D003D4341 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		30925EF122A95BA3003D4341 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		30E799C222AAA38500591E02 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		30F7FB4322AA69FA008587E8 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				30F7FB4322AA69FA008587E8 /* SearchViewModel.swift */,
+				30E799C222AAA38500591E02 /* MovieCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				30925EAF22A94AD2003D4341 /* AppDelegate.swift in Sources */,
 				30925EE322A95307003D4341 /* MovieCell.swift in Sources */,
 				30925EEC22A95813003D4341 /* NetworkModels.swift in Sources */,
+				30E799C322AAA38500591E02 /* MovieCellViewModel.swift in Sources */,
 				30925EDF22A94AF5003D4341 /* SearchBar.swift in Sources */,
 				30925EB122A94AD2003D4341 /* SceneDelegate.swift in Sources */,
 				30925EEE22A95836003D4341 /* API.swift in Sources */,

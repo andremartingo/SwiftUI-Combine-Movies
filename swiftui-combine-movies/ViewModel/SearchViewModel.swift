@@ -19,13 +19,7 @@ final class SearchViewModel: BindableObject {
     var didChange = PassthroughSubject<Void, Never>()
     var cancellable: Cancellable?
     
-    private(set) var movies = [Movie]() {
-        didSet {
-            didChange.send(())
-        }
-    }
-    
-    private(set) var movieImages = [Movie: UIImage]() {
+    private(set) var movies = [MovieCellViewModel]() {
         didSet {
             didChange.send(())
         }
@@ -43,6 +37,12 @@ final class SearchViewModel: BindableObject {
         }
     }
     
+    private let session: URLSession
+    
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+    
     func search() {
         let endpoint = API.Endpoint.search(term: textInput)
         let searchResource = Resource(baseURL: API.baseURL,
@@ -50,28 +50,13 @@ final class SearchViewModel: BindableObject {
                                       method: endpoint.method,
                                       query: endpoint.query)
                 
-        cancellable = URLSession.shared.request(request: searchResource.request())
+        cancellable = session.request(request: searchResource.request())
             .decode(type: MovieResponse.self, decoder: JSONDecoder())
             .map { [weak self] in
                 if $0.results.count > 0 { self?.state = .results }
-                return $0.results
+                return $0.results.map { MovieCellViewModel(movie: $0) }
             }
             .replaceError(with: [])
             .assign(to: \.movies, on: self)
-    }
-    
-    func getImage(for movie: Movie) {
-        guard let posterPath = movie.posterPath else { return }
-        let endpoint = API.Endpoint.image(id: posterPath, size: API.ImageSize.small)
-        let imageResource = Resource(baseURL: API.imageURL,
-                                     path: endpoint.path,
-                                     method: endpoint.method,
-                                     query: endpoint.query)
-        let _ = URLSession.shared.request(request: imageResource.request())
-            .map(UIImage.init)
-            .replaceError(with: nil)
-            .sink { [weak self] image in
-                self?.movieImages[movie] = image
-            }
     }
 }

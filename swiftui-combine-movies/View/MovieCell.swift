@@ -10,13 +10,11 @@ import SwiftUI
 
 struct MovieCell: View {
     
-    @EnvironmentObject var viewModel: SearchViewModel
-    
-    var movie: Movie
+    @ObjectBinding var movie: MovieCellViewModel
 
     var body: some View {
         HStack {
-            self.viewModel.movieImages[movie].map { image in
+            self.movie.image.map { image in
                 Image(uiImage: image)
                     .frame(width: 44, height: 44)
                     .aspectRatio(contentMode: .fit)
@@ -29,6 +27,5 @@ struct MovieCell: View {
 
         }
         .frame(height: 60)
-        .onAppear { self.viewModel.getImage(for: self.movie) }
     }
 }
