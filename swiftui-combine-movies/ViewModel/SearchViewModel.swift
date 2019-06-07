@@ -15,13 +15,6 @@ enum State {
     }
 }
 
-protocol SearchViewModelType {
-    var movies: [Movie] { get }
-    var movieImages: [Movie: UIImage] { get }
-    var state: State { get }
-    var textInput: String { get set }
-}
-
 final class SearchViewModel: BindableObject {
     var didChange = PassthroughSubject<Void, Never>()
     var cancellable: Cancellable?
