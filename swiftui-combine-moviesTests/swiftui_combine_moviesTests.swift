@@ -1,11 +1,3 @@
-//
-//  swiftui_combine_moviesTests.swift
-//  swiftui-combine-moviesTests
-//
-//  Created by Andre Martingo on 06.06.19.
-//  Copyright © 2019 Andre Martingo. All rights reserved.
-//
-
 import XCTest
 @testable import swiftui_combine_movies
 
